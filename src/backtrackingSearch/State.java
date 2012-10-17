@@ -43,17 +43,18 @@ public class State {
 		int field = getFieldForQueenPlacement(queen);
 		
 		
+		
 		return true; // hey! It worked!
 	}
 
+	
+
+	/*
+	 * Using methods for these two tasks are overkill, but I will be able to change them to something better later on without much extra work.
+	 */
 	private int getFieldForQueenPlacement(int queen) {
 		return D.get(queen).get(0);
 	}
-
-	/*
-	 * Using a method for this is overkill, but I will be able to change it to something better later on without much extra work.
-	 */
-	
 	private int getQueenToAdd() { 
 		if(queensPlaced.size()==0) return 0;
 		else return queensPlaced.get(queensPlaced.size()-1)+1;
