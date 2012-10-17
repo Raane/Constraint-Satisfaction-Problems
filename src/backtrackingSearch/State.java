@@ -39,9 +39,15 @@ public class State {
 	public boolean addQueen() {
 		if(!canHaveChildren()) return false; // Illegal states will be prevented
 		
-		int q = getQueenToAdd();
+		int queen = getQueenToAdd();
+		int field = getFieldForQueenPlacement(queen);
+		
 		
 		return true; // hey! It worked!
+	}
+
+	private int getFieldForQueenPlacement(int queen) {
+		return D.get(queen).get(0);
 	}
 
 	/*
