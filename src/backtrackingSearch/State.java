@@ -14,6 +14,7 @@ public class State {
 	private int boardSize;	// Size of the board
 	private ArrayList<ArrayList<Integer>> D;		// Queens
 	private ArrayList<ArrayList<ArrayList<Integer>>> C;		// Collisions
+	private int	queensPlaced = 0;
 	
 	public State(int boardSize) {	// Create an empty boardstate
 		this.boardSize = boardSize;
@@ -30,6 +31,10 @@ public class State {
 		}
 	}
 	
+	public boolean canHaveChildren() {
+		for(ArrayList<Integer> d:D) if(d.isEmpty()) return false;
+		return true;
+	}
 	
 	
 }
