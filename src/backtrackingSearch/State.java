@@ -14,7 +14,7 @@ public class State {
 	private int boardSize;	// Size of the board
 	private ArrayList<ArrayList<Integer>> D;		// Queens
 	private ArrayList<ArrayList<ArrayList<Integer>>> C;		// Collisions
-	private int	queensPlaced = 0;
+	private ArrayList<Integer> queensPlaced = new ArrayList<Integer>();
 	
 	public State(int boardSize) {	// Create an empty boardstate
 		this.boardSize = boardSize;
@@ -36,5 +36,20 @@ public class State {
 		return true;
 	}
 	
+	public boolean addQueen() {
+		if(!canHaveChildren()) return false; // Illegal states will be prevented
+		
+		int q = getQueenToAdd();
+		
+		return true; // hey! It worked!
+	}
+
+	/*
+	 * Using a method for this is overkill, but I will be able to change it to something better later on without much extra work.
+	 */
 	
+	private int getQueenToAdd() { 
+		if(queensPlaced.size()==0) return 0;
+		else return queensPlaced.get(queensPlaced.size()-1)+1;
+	}
 }
