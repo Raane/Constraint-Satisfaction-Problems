@@ -42,8 +42,19 @@ public class State {
 		int queen = getQueenToAdd();
 		int field = getFieldForQueenPlacement(queen);
 		
+		for(int i=0;i<boardSize;i++) {			
+			C.get(i).add(new ArrayList<Integer>());
+		}
 		
-		
+		// Doing the operations on the row
+		for(int collition:D.get(queen)) {
+			if(collition!=queen) C.get(queen).get(C.get(queen).size()-1).add(collition);
+			D.get(queen)
+		}
+		// Doing the operations on the column
+		for(int i=0;i<boardSize;i++){
+			if(i!=queen && D.get(i).contains(queen)) C.get(i).get(C.get(i).size()-1).add(queen);
+		}
 		return true; // hey! It worked!
 	}
 
