@@ -109,7 +109,7 @@ public class State {
 		string += "D: " + System.getProperty("line.separator");
 		
 		for(int i=0;i<boardSize;i++) {
-			string += "(";
+			string += "( ";
 			for(int queen:D.get(i)) {
 				string += queen + " ";
 			}
@@ -119,7 +119,7 @@ public class State {
 		string += "C: " + System.getProperty("line.separator");
 		for(int i=0;i<boardSize;i++) {
 			for(ArrayList<Integer> collitions:C.get(i)) {
-				string += "(";
+				string += "( ";
 				for(int collition:collitions) {
 					string += collition + " ";
 				}
@@ -130,6 +130,13 @@ public class State {
 		
 		return string;
 	}
-	
-	//TODO Make a paint method
+
+	public void paint() {
+		for(int i=0;i<boardSize;i++) {
+			for(int j=0;j<boardSize;j++) {
+				System.out.print(" " + (j==D.get(i).get(0)?"O":"."));
+			}
+			System.out.print(System.getProperty("line.separator"));
+		}
+	}
 }
