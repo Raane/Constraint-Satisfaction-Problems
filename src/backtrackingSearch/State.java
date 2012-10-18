@@ -84,6 +84,10 @@ public class State {
 			}
 		}
 		
+		// To make sure that the possition will not occur again we add the queenstate we just tried to C and remove it from D
+		int field = getFieldForQueenPlacement(queen);
+		C.get(queen).get(C.get(queen).size()-1).add(field);
+		D.get(queen).remove((Integer)field);
 		return true; // Hey! It worked!
 	}
 
