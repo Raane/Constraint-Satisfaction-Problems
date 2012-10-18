@@ -23,7 +23,6 @@ public class State {
 		D = new ArrayList<ArrayList<Integer>>();
 		for(int i=0;i<boardSize;i++) {
 			C.add(new ArrayList<ArrayList<Integer>>());
-			C.get(i).add(new ArrayList<Integer>());
 			D.add(new ArrayList<Integer>());
 			for(int j=0;j<boardSize;j++) {
 				D.get(i).add(j);
@@ -67,7 +66,7 @@ public class State {
 		// Fjerner colisjonene fra D
 		for(int i=0;i<boardSize;i++) {
 			for(int collition:C.get(i).get(C.get(i).size()-1)) {
-				D.get(i).remove((Integer)collition);				//TODO Virker dette egentlig med Integer?
+				D.get(i).remove((Integer)collition);
 			}
 		}
 		
