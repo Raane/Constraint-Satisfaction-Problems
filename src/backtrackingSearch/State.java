@@ -59,9 +59,8 @@ public class State {
 		
 		// Doing operations on the diagonals
 		for(int i=0;i<boardSize;i++) {
-			for(int j=-1;j<1;j+=2) {
-				//int x = (i-queen)*j;
-				if((i-queen)*j>=0 && (i-queen)*j < boardSize && i!=queen && D.get(i).contains((i-queen)*j));
+			for(int j=-1;j<2;j+=2) {
+				if(((i-queen)*j)+field>=0 && ((i-queen)*j)+field < boardSize && i!=queen && D.get(i).contains(((i-queen)*j)+field)) C.get(i).get(C.get(i).size()-1).add(((i-queen)*j)+field);
 			}
 		}
 		
@@ -128,4 +127,6 @@ public class State {
 		
 		return string;
 	}
+	
+	//TODO Make a paint method
 }
