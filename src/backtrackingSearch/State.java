@@ -41,6 +41,7 @@ public class State {
 		
 		int queen = getQueenToAdd();
 		int field = getFieldForQueenPlacement(queen);
+		queensPlaced.add(queen);						// Add the queen to the placed queens
 		                   
 		for(int i=0;i<boardSize;i++) {			
 			C.get(i).add(new ArrayList<Integer>());
@@ -74,6 +75,19 @@ public class State {
 		return true; // hey! It worked!
 	}
 
+	public boolean removeQueen() {
+		if(queensPlaced.isEmpty()) return false;	// If the board is empty, no queen can be removed.
+		
+		int queen = queensPlaced.remove(queensPlaced.size()-1);
+		
+		for(int i=0;i<boardSize;i++) {
+			for(int collition:C.get(i).remove(C.get(i).size()-1)) {
+				D.get(i).add(collition);
+			}
+		}
+		
+		return true; // Hey! It worked!
+	}
 
 	/*
 	 * Using methods for these two tasks are overkill, but I will be able to change them to something better later on without much extra work.
