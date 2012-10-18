@@ -6,12 +6,20 @@ public class BacktrackingSearch {
 	}
 	
 	public State solve(int boardSize) {
-		return null;
+		State state = new State(boardSize);
+		for(int depth=0;depth<boardSize;depth++) {
+			System.out.println(depth);
+			if(!state.addQueen()) {
+				state.removeQueen();
+				depth-=2;
+			}
+		}
+		return state;
 	}
 	
 	public static void main(String[] args) {
 		BacktrackingSearch search = new BacktrackingSearch();
-		search.solve(8);
+		System.out.println(search.solve(8));
 	}
 }
 	
