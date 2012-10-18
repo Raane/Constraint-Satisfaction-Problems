@@ -19,7 +19,7 @@ public class BacktrackingSearch {
 	
 	public static void main(String[] args) {
 		BacktrackingSearch search = new BacktrackingSearch();
-		State solution = search.solve(31);
+		State solution = search.solve(16);
 		solution.paint();
 		System.out.println(solution);
 	}
