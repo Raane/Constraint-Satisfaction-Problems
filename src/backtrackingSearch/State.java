@@ -99,4 +99,33 @@ public class State {
 		if(queensPlaced.size()==0) return 0;
 		else return queensPlaced.get(queensPlaced.size()-1)+1;
 	}
+	
+	@Override
+	public String toString() {
+		String string = "";
+		
+		string += "D: " + System.getProperty("line.separator");
+		
+		for(int i=0;i<boardSize;i++) {
+			string += "(";
+			for(int queen:D.get(i)) {
+				string += queen + " ";
+			}
+			string += ")" + System.getProperty("line.separator");
+		}
+		
+		string += "C: " + System.getProperty("line.separator");
+		for(int i=0;i<boardSize;i++) {
+			for(ArrayList<Integer> collitions:C.get(i)) {
+				string += "(";
+				for(int collition:collitions) {
+					string += collition + " ";
+				}
+				string += ")";
+			}
+			string += System.getProperty("line.separator");
+		}
+		
+		return string;
+	}
 }
